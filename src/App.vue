@@ -1,26 +1,92 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <BaseHeader/>
+  <main>
+    <div class="container">
+      <h1>BeerRandomizer – Ваш личный пивной сомелье!</h1>
+      <BeerUser/>
+      <BeerSuggest/>
+    </div>
+  </main>
+  <BaseModal/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import BeerUser from "./components/BeerUser.vue";
+import BeerSuggest from "./components/BeerSuggest.vue";
+import BaseHeader from "@/components/BaseHeader";
+import BaseModal from "@/components/BaseModal";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    BaseHeader,
+    BeerSuggest,
+    BeerUser,
+    BaseModal,
   }
 }
 </script>
 
 <style>
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/Montserrat-Regular.ttf') format("truetype");
+}
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  src: url('./fonts/Montserrat-Bold.ttf') format("truetype");
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Montserrat, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.container {
+  margin: 0 auto;
+  max-width: 890px;
+  padding: 0 15px;
+}
+.btn {
+  margin-top: 1rem;
+  padding: 1em;
+  position: relative;
+  font-family: Montserrat, Helvetica, Arial, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+  border: none;
+  background-color: lightblue;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 5;
+}
+.btn span {
+  position: relative;
+  z-index: 10;
+}
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(100%);
+  transition: transform 0.6s cubic-bezier(.09,.87,.88,.72);
+  background-color: darkgoldenrod;
+}
+.btn:hover::after {
+  transform: translateY(0)
+}
+@media only screen and (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem
+  }
 }
 </style>
