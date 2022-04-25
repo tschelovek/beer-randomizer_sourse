@@ -61,9 +61,9 @@
 
 <script setup>
 import {storeToRefs, mapActions} from "pinia";
-import {useUserStore} from "@/stores/user";
+import {useBeerStore} from "@/stores/beer";
 
-const store = useUserStore();
+const store = useBeerStore();
 const {
   beerCounter,
   brand,
@@ -77,7 +77,7 @@ const {
   blg
 } = storeToRefs(store);
 
-const {oneMoreBeer} = mapActions(useUserStore, ["oneMoreBeer"])
+const {oneMoreBeer} = mapActions(useBeerStore, ["oneMoreBeer"])
 
 </script>
 
