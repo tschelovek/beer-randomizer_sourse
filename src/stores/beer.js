@@ -40,7 +40,7 @@ export const useBeerStore = defineStore("beer", {
 
         async oneMoreBeer() {
             this.beerCounter++;
-            if (this.beerCounter === 4 || this.beerCounter === 8) {
+            if (this.beerCounter === 3 || this.beerCounter === 8) {
                 document.querySelector('#modal').showModal();
             }
             await this.fetchBeer()

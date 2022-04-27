@@ -66,23 +66,30 @@ export default {
   overflow: hidden;
   z-index: 5;
 }
+.btn:focus {
+  outline: none;
+}
 .btn span {
   position: relative;
   z-index: 10;
+  transition: color 0.5s;
 }
 .btn::after {
   content: '';
   position: absolute;
-  top: 8px;
+  top: 4px;
   bottom: 0;
   left: 0;
   right: 0;
   transform: translateY(100%);
   transition: transform 0.6s cubic-bezier(.09,.87,.88,.72);
-  background-color: darkgoldenrod;
+  background: linear-gradient(white 8px, darkgoldenrod 8px);
 }
 .btn:hover::after {
   transform: translateY(0)
+}
+.btn:hover span {
+  color: white
 }
 @media only screen and (max-width: 480px) {
   h1 {

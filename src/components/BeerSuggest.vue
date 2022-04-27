@@ -1,7 +1,7 @@
 <template>
   <div class="suggest">
     <div class="btn-wrapper">
-      <button type="button" class="suggest__btn btn" @click="oneMoreBeer">
+      <button type="button" class="suggest__btn btn" @click="store.oneMoreBeer">
         <span>Что бы выбрать?</span>
       </button>
     </div>
@@ -60,7 +60,7 @@
 </template>
 
 <script setup>
-import {storeToRefs, mapActions} from "pinia";
+import {storeToRefs } from "pinia";
 import {useBeerStore} from "@/stores/beer";
 
 const store = useBeerStore();
@@ -76,8 +76,6 @@ const {
   alcohol,
   blg
 } = storeToRefs(store);
-
-const {oneMoreBeer} = mapActions(useBeerStore, ["oneMoreBeer"])
 
 </script>
 
